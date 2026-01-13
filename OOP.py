@@ -61,3 +61,7 @@ print("\n" + "="*30)
 
 print(f"Всего создано транспортных средств: {Vehicle.vehicles_created}")
 
+
+
+print('test')
+
