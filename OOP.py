@@ -53,7 +53,7 @@ trek = Bicycle("Trek", 40, "Карбон")
 vehicles = [tesla, bmw, trek]
 for vehicle in vehicles:
     print("---")
-    vehicle.display_info() # Один и тот же вызов - разное поведение
+    vehicle.display_info()
     vehicle.drive(100)
     print(f"Пробег после поездки: {vehicle.get_mileage()} км")
 
