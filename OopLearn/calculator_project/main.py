@@ -5,39 +5,39 @@ import subprocess
 import sys
 
 
-# Автообновления ----------------------------------------------
-
-
-with open("version.txt") as f:
-    current_version = f.read().strip()
-
-
-def get_latest_release(user, repo):
-    url = f"https://api.github.com/repos/{user}/{repo}/releases/latest"
-    r = requests.get(url)
-    r.raise_for_status()
-    data = r.json()
-    version = data["tag_name"]                      # пример: "v1.1.0"
-    download_url = data["assets"][0]["browser_download_url"]
-    return version, download_url
-
-
-def check_for_update():
-    try:
-        latest_version, url = get_latest_release("AgentZero-afk", "OopLearn")
-        if latest_version != current_version:
-            print(f"Доступна новая версия: {latest_version}")
-            r = requests.get(url)
-            with open("update.exe", "wb") as f:
-                f.write(r.content)
-            # Запускаем updater
-            subprocess.Popen([os.path.join(os.getcwd(), "updater.exe"), "update.exe", sys.argv[0]])
-            print("Программа будет обновлена и перезапущена.")
-            sys.exit()
-    except Exception as e:
-        print("Не удалось проверить обновление:", e)
-
-check_for_update()
+# # Автообновления ----------------------------------------------
+#
+#
+# with open("version.txt") as f:
+#     current_version = f.read().strip()
+#
+#
+# def get_latest_release(user, repo):
+#     url = f"https://api.github.com/repos/{user}/{repo}/releases/latest"
+#     r = requests.get(url)
+#     r.raise_for_status()
+#     data = r.json()
+#     version = data["tag_name"]                      # пример: "v1.1.0"
+#     download_url = data["assets"][0]["browser_download_url"]
+#     return version, download_url
+#
+#
+# def check_for_update():
+#     try:
+#         latest_version, url = get_latest_release("AgentZero-afk", "OopLearn")
+#         if latest_version != current_version:
+#             print(f"Доступна новая версия: {latest_version}")
+#             r = requests.get(url)
+#             with open("update.exe", "wb") as f:
+#                 f.write(r.content)
+#             # Запускаем updater
+#             subprocess.Popen([os.path.join(os.getcwd(), "updater.exe"), "update.exe", sys.argv[0]])
+#             print("Программа будет обновлена и перезапущена.")
+#             sys.exit()
+#     except Exception as e:
+#         print("Не удалось проверить обновление:", e)
+#
+# check_for_update()
 
 
 
