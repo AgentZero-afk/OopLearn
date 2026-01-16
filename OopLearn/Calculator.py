@@ -1,4 +1,4 @@
-
+import math
 
 class Calculator:
     def __init__(self,num_1,num_2,num_3):
@@ -19,6 +19,10 @@ class Calculator:
 
     def div(self):
         return self.num_1 / self.num_2
+
+    def exponentiation(self):
+        return math.pow(self.num_1, self.num_2)
+
 
     def ask_precision(self) -> int:
         raw = input("Сколько знаков после запятой оставить? (0..10, по умолчанию 2): ")
@@ -58,6 +62,9 @@ class Calculator:
                 return
             result = self.div()
             action = 'Делим'
+        elif self.num_3 == '5':
+            result = self.exponentiation()
+            action = 'Возведение в степень'
         else:
             print('Неверный выбор опции')
             return
@@ -74,7 +81,7 @@ x = input('Введите первое число: ')
 
 y = input('Введите второе число: ')
 
-c = input('Выберите опцию: 1 - сложение, 2 - вычитание , 3 - умножение, 4 - деление: ')
+c = input('Выберите опцию: 1 - сложение, 2 - вычитание, 3 - умножение, 4 - деление:, 5 - возведение в степень: ')
 
 
 calc = Calculator(float(x),float(y),c)
