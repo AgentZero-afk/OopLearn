@@ -24,7 +24,8 @@ class Calculator:
         return math.pow(self.num_1, self.num_2)
 
 
-    def ask_precision(self) -> int:
+    @staticmethod
+    def ask_precision() -> int:
         raw = input("Сколько знаков после запятой оставить? (0..10, по умолчанию 2): ")
         if raw == "":
             return 2
@@ -41,7 +42,8 @@ class Calculator:
             print("Некорректный ввод, использую 2")
             return 2
 
-    def format_result(self, value: float, precision: int) -> str:
+    @staticmethod
+    def format_result(value: float, precision: int) -> str:
         fmt = f"{{:.{precision}f}}"
         return fmt.format(value)
 
