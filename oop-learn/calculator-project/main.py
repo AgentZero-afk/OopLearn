@@ -24,7 +24,7 @@ import sys
 #
 # def check_for_update():
 #     try:
-#         latest_version, url = get_latest_release("AgentZero-afk", "OopLearn")
+#         latest_version, url = get_latest_release("AgentZero-afk", "oop-learn")
 #         if latest_version != current_version:
 #             print(f"Доступна новая версия: {latest_version}")
 #             r = requests.get(url)
